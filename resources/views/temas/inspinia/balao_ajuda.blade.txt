@@ -1,0 +1,25 @@
+<?php
+// dd("$_SERVER[REQUEST_URI]");
+?>
+
+<div class="small-chat-box fadeInRight animated">
+    <div class="heading" draggable="true">
+        {!! trataTraducoes('ajuda_do_sistema') !!}
+    </div>
+    <div class="content">
+        <div class="left">
+            <div class="author-name">
+                {!! "$_SERVER[REQUEST_URI]" !!}
+                montaBreadcrumb() !!}
+            </div>
+            <div class="chat-message active">
+                Lorem Ipsum is simply dummy text input.
+            </div>
+        </div>
+    </div>
+</div>
+<div id="small-chat">
+    <a class="open-small-chat" style="cursor: pointer;">
+        <i class="fa fa-question" style="color: #fff; font-size: 20px;"></i>
+    </a>
+</div>

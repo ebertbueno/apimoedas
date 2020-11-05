@@ -1,0 +1,31 @@
+<?php
+/*
+<strong>@include('cabecalho')</strong>
+<button class="ladda-button btn btn-primary"  data-style="expand-left">Submit</button>
+*/
+?>
+
+<script>
+    $(document).ready(
+        function(){
+            $('.summernote').summernote({
+                height: 200,
+            });
+        }
+    );
+
+
+
+    $(document).ready(function (){
+        // Ladda.bind( '.ladda-button',{ timeout: 500 });
+        Ladda.bind( '.ladda-button',{ timeout: 10000 });
+
+        // var l = $( '.ladda-button' ).ladda();
+        //     l.click(function(){
+        //         l.ladda( 'start' );
+        //         setTimeout(function(){
+        //             l.ladda('stop');
+        //         },500)
+        //     });
+    });
+</script>

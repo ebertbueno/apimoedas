@@ -1,0 +1,58 @@
+<?php
+/*
+<div class="row border-bottom" style="margin-bottom: 30px; left: 0px !important; right: 0px !important; width: 100% !important; position: relative !important; overflow-x: hidden !important;">
+*/
+?>
+	<nav class="navbar navbar-static-top" role="navigation">
+		<div class="navbar-header">
+			@switch(site_id()['modulo'])
+				@case('tradoniex')
+					@switch(Auth()->user()->nivel)
+						@case('vazio')
+							<a href="/" class="minimalize-styl-2 btn btn-primary"><i class="fa fa-dashboard"></i> </a>
+						@break
+
+						@default
+							<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+					@endswitch
+				@break
+
+				@default
+					@switch(Auth()->user()->nivel)
+						@case('cli')
+							<a href="/" class="minimalize-styl-2 btn btn-primary"><i class="fa fa-dashboard"></i> </a>
+						@break
+
+						@default
+							<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+					@endswitch
+			@endswitch
+		</div>
+		<ul class="nav navbar-top-links navbar-right">
+			<li>
+				<span class="m-r-sm text-muted welcome-message">@lang('global-'.idiomaPadrao().'.bem_vindo') - {!! explode(' ',Auth()->user()->name)[0] !!}</span>
+			</li>
+
+			<li><a onclick="atualizaSaldo()" class="cursor_pointer"> <i class="fa fa-money"></i> <span id="saldoDisponivelDestino">{!! number_format(consultaSaldoporUsuario('saldo_disp'),2,',','.') !!}</span></a></li>
+
+			<?php
+			/*
+			@include('temas.inspinia.topo.01')
+			<li><a class="right-sidebar-toggle" title="{!! trataTraducoes('chat') !!}"><i class="fa fa-commenting-o"></i></a></li>
+			*/
+			?>
+			@include('temas.inspinia.topo.02')
+			@include('temas.inspinia.topo.idiomas')
+			<li><a href="/sair" title="{!! trataTraducoes('sair') !!}"><i class="fa fa-power-off"></i></a></li>
+			<?php
+			/*
+			*/
+			?>
+		</ul>
+
+	</nav>
+<?php
+/*
+</div>
+*/
+?>

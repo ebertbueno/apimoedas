@@ -1,0 +1,31 @@
+<script type="text/javascript" src="/qrcode/js/instascan.min.js"></script>
+
+<div class="ibox ">
+	<div class="ibox-title">
+		{!! !empty($data['subtitulo']) ? '<span class="label label-'.$data['cor'].' float-right">' : '' !!}
+			{!! !empty($data['subtitulo']) ? $data['subtitulo'] : '' !!}
+		{!! !empty($data['subtitulo']) ? '</span>' : '' !!}
+		<div class="row" style="padding-left: 15px;">
+			<div class="col-lg-3">
+				<h5>{!! !empty($data['titulo']) ? $data['titulo'] : '' !!}</h5>
+			</div>
+			<div class="col-lg-9">
+				{!! montaCamposFormulario(['cor'=>'primary btn-block','url'=>'/financial/payments/create/paste','tipo'=>'LinkGeralIcone','icone'=>'fa fa-usd','label'=>'novo_pagamento_por_codigo_de_transacao'],'b') !!}
+			</div>
+		</div>
+	</div>
+	<div class="ibox-content">
+		<div id="resposta_erro_camera" style="display: block;">{!! traducoesSistema('nao_foi_possivel_acessar_o_dispositivo_da_camera') !!}</div>
+
+		<video id="js-video" class="reader-video" autoplay playsinline></video>
+		<canvas style="display:none" id="js-canvas"></canvas>
+
+		<br><br><br>
+
+		<a href="{!! url('/financial/payments/create/qrcode/') !!}/" id="js-link" class="modal-btn" target="_blank">
+			<span id="js-result" class="modal-result"></span>
+		</a>
+
+		<div id="js-modal-close"></div>
+	</div>
+</div>
